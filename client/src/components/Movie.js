@@ -15,6 +15,7 @@ const Movie = (props) => {
         axios.get(`http://localhost:5000/api/movies/${id}`)
             .then(res=>{
                 setMovie(res.data);
+                console.log(res.data)
             })
             .catch(err=>{
                 console.log(err.response);

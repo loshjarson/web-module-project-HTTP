@@ -14,6 +14,13 @@ import axios from 'axios';
 const App = (props) => {
   const [movies, setMovies] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [movie, setMovie] = useState({
+		title:"",
+		director: "",
+		genre: "",
+		metascore: 0,
+		description: ""
+	});
 
   useEffect(()=>{
     axios.get('http://localhost:5000/api/movies')
@@ -45,10 +52,11 @@ const App = (props) => {
         
           <Switch>
             <Route path="/movies/edit/:id">
+              <EditMovieForm movie={movie} setMovie={setMovie} setMovies={setMovies}/>
             </Route>
 
             <Route path="/movies/:id">
-              <Movie/>
+              <Movie />
             </Route>
 
             <Route path="/movies">
