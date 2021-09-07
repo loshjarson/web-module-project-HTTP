@@ -15,7 +15,6 @@ const Movie = (props) => {
         axios.get(`http://localhost:5000/api/movies/${id}`)
             .then(res=>{
                 setMovie(res.data);
-                console.log(res.data)
             })
             .catch(err=>{
                 console.log(err.response);
@@ -25,7 +24,6 @@ const Movie = (props) => {
     const handleDelete = e => {
         axios.delete(`http://localhost:5000/api/movies/${id}`)
             .then(res=>{
-                console.log(res.data)
                 deleteMovie(id)
                 push('/movies')
             })
